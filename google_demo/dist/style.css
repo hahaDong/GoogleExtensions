@@ -1,0 +1,15 @@
+.content{
+    margin: 0;
+    padding: 0;
+    border: 2px cadetblue dashed;
+}
+h1{
+    border: 1px solid red;
+}
+p{
+    border: 1px solid blue;
+}
+ol{
+    border: 1px solid orange;
+}
+

@@ -1,0 +1,197 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--  <head>-->
+<!--    <meta charset="UTF-8" />-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge" />-->
+<!--    <title>石璞东</title>-->
+<!--  </head>-->
+<!--  <body>-->
+<!--  <h1>大家好，我是石璞东</h1>-->
+
+<!--  <p>欢迎访问我的开源作品：</p>-->
+
+<!--  <ol>-->
+<!--    <li>个人网站（https://www.shipudong.com）</li>-->
+<!--    <li>个人微信公众号（hahaCoder）</li>-->
+<!--    <li>个人微信小程序（hahaAI）</li>-->
+<!--    <li>Github（https://github.com/TURBO1002?tab=repositories）</li>-->
+<!--  </ol>-->
+
+<!--  &lt;!&ndash;  <div class="content">&ndash;&gt;-->
+<!--&lt;!&ndash;    <h3>大家好，我是石璞东。</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;    <h4>欢迎查看我的更多开源作品：</h4>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li><a href="https://www.shipudong.com">个人网站</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li>个人微信公众号（hahaCoder）</li>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li>个人微信小程序（hahaAI）</li>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li><a href="https://github.com/TURBO1002?tab=repositories">GitHub</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--  <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--  <title>摄像头拍照</title>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--<video id="video" width="300" height="400" controls>-->
+<!--</video>-->
+<!--<canvas id="canvas" width="300" height="400"></canvas>-->
+<!--<div>-->
+<!--  <button id="capture">拍照</button>-->
+<!--  <button id="close">关闭摄像头</button>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--  let video = document.getElementById('video');-->
+<!--  let canvas = document.getElementById('canvas');-->
+<!--  let context = canvas.getContext('2d');-->
+<!--  var mediaStreamTrack;-->
+
+<!--  //访问用户媒体设备的兼容方法-->
+<!--  function getUserMedia(constraints, success, error) {-->
+<!--    if (navigator.mediaDevices.getUserMedia) {-->
+<!--      //最新的标准API-->
+<!--      navigator.mediaDevices.getUserMedia(constraints).then(success).catch(error);-->
+<!--    } else if (navigator.webkitGetUserMedia) {-->
+<!--      //webkit核心浏览器-->
+<!--      navigator.webkitGetUserMedia(constraints, success, error)-->
+<!--    } else if (navigator.mozGetUserMedia) {-->
+<!--      //firfox浏览器-->
+<!--      navigator.mozGetUserMedia(constraints, success, error);-->
+<!--    } else if (navigator.getUserMedia) {-->
+<!--      //旧版API-->
+<!--      navigator.getUserMedia(constraints, success, error);-->
+<!--    }-->
+<!--  }-->
+
+<!--  function success(stream) {-->
+<!--    //兼容webkit核心浏览器-->
+<!--    let CompatibleURL = window.URL || window.webkitURL;-->
+<!--    //将视频流设置为video元素的源-->
+<!--    //video.src = CompatibleURL.createObjectURL(stream);-->
+
+<!--    // 播放-->
+<!--    video.srcObject = stream;-->
+<!--    video.play();-->
+<!--    mediaStreamTrack = stream-->
+<!--  }-->
+
+<!--  function error(error) {-->
+<!--    alert('调用摄像头失败')-->
+<!--  }-->
+
+<!--  if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia) {-->
+<!--    getUserMedia({ video: { width: 300, height: 400 } }, success, error);-->
+<!--  } else {-->
+<!--    alert('不支持访问用户媒体');-->
+<!--  }-->
+
+<!--  // 拍照-->
+<!--  document.getElementById('capture').addEventListener('click', function () {-->
+<!--    context.drawImage(video, 0, 0, 300, 400);-->
+<!--    // photoSrc 就是拍照得到的base64的图片数据，将数据传递给后端就可以了-->
+<!--    var photoSrc = document.getElementById("canvas").toDataURL("image/jpeg", 0.8);　　　　　　　　　　　　　　　　// 以下就是调用接口将数据传递给后端，省略...-->
+<!--  })-->
+
+<!--  // 关闭摄像头-->
+<!--  document.getElementById('close').addEventListener('click', function() {-->
+<!--    if (mediaStreamTrack) {-->
+<!--      mediaStreamTrack.getTracks()[0].stop();-->
+<!--    }-->
+<!--  });-->
+<!--</script>-->
+<!--</body>-->
+
+<!--</html>-->
+
+<!--.content{-->
+<!--width: 500px;-->
+<!--height: 700px;-->
+<!--}-->
+<!--<link rel="stylesheet" href="style.css">-->
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--  <meta charset="utf-8">-->
+<!--  <title>hahaCoder</title>-->
+<!--  <style>-->
+<!--    .content{-->
+<!--      margin: 0;-->
+<!--      padding: 0;-->
+<!--      border: 2px cadetblue dashed;-->
+<!--    }-->
+<!--    h1{-->
+<!--      border: 1px solid red;-->
+<!--    }-->
+<!--    p{-->
+<!--      border: 1px solid blue;-->
+<!--    }-->
+<!--    ol{-->
+<!--      border: 1px solid orange;-->
+<!--    }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="content">-->
+<!--  <h1>大家好，我是石璞东</h1>-->
+<!--  <p>欢迎访问我的开源作品：</p>-->
+<!--  <ol>-->
+<!--    <li>个人网站（https://www.shipudong.com）</li>-->
+<!--    <li>个人微信公众号（hahaCoder）</li>-->
+<!--    <li>个人微信小程序（hahaAI）</li>-->
+<!--    <li>Github（https://github.com/TURBO1002?tab=repositories）</li>-->
+<!--  </ol>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+<!doctype html>
+<html>
+  <head>
+    <title>HelloWorld</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <h2 id="greet">Hello,World</h2>
+    <input type="text" id="name">
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
