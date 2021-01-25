@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "hahaBaidu",
+  "version": "1.0",
+  "description": "Search baidu on the go!",
+  "background": {
+    "scripts": ["eventPage.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "tabs","contextMenus"
+  ]
+}
