@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "hahaBaidu",
   "version": "1.0",
-  "description": "Search baidu on the go!",
+  "description": "Search what you want on baidu",
   "background": {
     "scripts": ["eventPage.js"],
     "persistent": false
