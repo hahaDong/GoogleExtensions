@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "budget_manager",
+  "version": "1.0",
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["storage","notifications","contextMenus"],
+  "options_page":"options.html",
+  "background":{
+    "scripts":["eventPage.js"],
+    "persistent":false
+  }
+}

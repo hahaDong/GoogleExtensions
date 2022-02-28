@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "PageFontStyle Extension",
+  "version": "1.0",
+  "description": "Changes font style on a specific page",
+  "page_action": {
+    "default_icon": "hello.png",
+    "default_popup": "popup.html",
+    "default_title": "PageFontStyle"
+  },
+  "background": {
+    "scripts": ["eventPage.js"],
+    "persistent":false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://developer.chrome.com/*","https://www.shipudong.com/*"],
+      "js": ["content.js","jquery-3.5.1.min.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "permissions": ["tabs","https://developer.chrome.com/*","https://www.shipudong.com/*"]
+
+}
